@@ -1,10 +1,13 @@
 import React from 'react'
 import {Route, Routes,BrowserRouter} from 'react-router-dom'
-import Home from './components/Home'
+import Home from './Pages/Home'
+
 import Player from './components/Player'
 const App = () => {
   return (
+
     <BrowserRouter>
+    
    
     <Routes>
         <Route path='/' element={<Home/>}/>

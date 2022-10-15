@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Grid,Typography,Card,CardHeader,CardMedia,CardActions,CardContent,IconButton,Button} from '@mui/material'
 import {PlayCircle} from "@mui/icons-material"
 
-const Home = () => {
+const Videos = () => {
     const[videos,setVideos]=useState([])
     useEffect(()=>{
         const getVideos=async ()=>{
@@ -29,9 +29,9 @@ getVideos()
         
   
 
-    <Card  sx={{height:'440px', backgroundColor:'#FFD384'}}>
+    <Card  sx={{height:'440px', backgroundColor:"rgb(107, 20, 41)"}}>
 <CardHeader
-sx={{color:'#FF884B', fontFamily:"'Playfair Display SC',sans-serif"}}
+sx={{color:'#ffff', fontFamily:"'Playfair Display SC',sans-serif"}}
 title={video.name}
 />
         <CardMedia
@@ -41,7 +41,7 @@ title={video.name}
        alt={video.name}
       />
       <CardContent>
-<Typography variant="body2" sx={{fontFamily: '"Lato", sans-serif'}}>
+<Typography variant="body2" sx={{fontFamily: '"Lato", sans-serif',color:'#fff'}}>
  {video.description}
 </Typography>
       </CardContent>
@@ -49,7 +49,7 @@ title={video.name}
    <CardActions>
     <IconButton>
        
-            <Button sx={{backgroundColor:'#FF884B'}} startIcon={<PlayCircle/>} href={`player/${video.id}`} variant="contained">Watch Course</Button>
+            <Button sx={{backgroundColor:"rgb(20, 15, 35)"}} startIcon={<PlayCircle/>} href={`player/${video.id}`} variant="contained">Watch Course</Button>
 
        
     
@@ -67,4 +67,4 @@ title={video.name}
   )
 }
 
-export default Home
+export default Videos
