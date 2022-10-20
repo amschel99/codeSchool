@@ -1,26 +1,26 @@
 import React from 'react'
 
 import {ListItem,ListItemIcon,ListItemText,Drawer,List,ListSubheader,Typography,Button} from '@mui/material'
-import {Code,GitHub,Javascript, CodeSharp as Reactjs,Html} from "@mui/icons-material"
+import {Code,GitHub,Javascript, CodeSharp as Reactjs,Html,NetworkPingSharp,Security,Apps,Cloud} from "@mui/icons-material"
 const DrawerComponent = () => {
 
     const [items]=React.useState({
       learningPaths:[
-        {label:"Frontend",Icon:Reactjs,path:'frontend'},
-          {label:"Backend",Icon:Code,path:'backend'},
-            {label:"Networking",Icon:Javascript,path:'fullstack'},
-              {label:"Ethical Hacking",Icon:GitHub,path:'git'},
+         {label:"HTML and Css",Icon:Html},
+        {label:"Javascript",Icon:Javascript},
+          {label:"Node JS",Icon:Code},
+            {label:"React JS",Icon:Reactjs},
+              {label:"Networking",Icon:NetworkPingSharp},
            
-              {label:"AI and Machine Learning",Icon:GitHub,path:'git'},
-              {label:"Blockchain",Icon:GitHub,path:'git'},
-              {label:"Cloud(AWS)",Icon:GitHub,path:'git'}
+       
       ],
       PlayGrounds:[
-        {label:" Javascript ",Icon:Javascript,path:'jsPlayground'},
-          {label:"Node Js",Icon:Html,path:'htmlPlayground'},
-            {label:"React JS",Icon:Reactjs,path:'reactPlayground'},
-              {label:"React Native",Icon:Code,path:'nodePlayground'},
-              {label:"Solidity",Icon:GitHub,path:'git'}
+        {label:" Data Structures and Algorithims ",Icon:Code},
+          {label:"Web Security",Icon:Security},
+            {label:"Git Version Control",Icon:GitHub},
+              {label:"Unit Testing",Icon:Code},
+              {label:"Progressive Web Apps",Icon:Apps},
+                  {label:"AWS for developers",Icon:Cloud}
 
 
       ],
@@ -56,7 +56,7 @@ const DrawerComponent = () => {
 <ListItems sx={{color:'rgb(20, 15, 35)'}} items={items.learningPaths}/>
 <ListSubheader sx={{color:"rgb(107, 20, 41)"}}>
   <Typography variant="h5">
-    Playgrounds
+Elective course work
   </Typography>
   </ListSubheader>
 <ListItems  sx={{color:'rgb(20, 15, 35)'}} items={items.PlayGrounds}/>

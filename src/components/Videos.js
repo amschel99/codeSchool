@@ -12,6 +12,7 @@ const Videos = () => {
 const {data}=await axios.get(`http://localhost:8800/videos`)
 setVideos(data)
 
+
             }
             catch(error){
                 console.error(error)

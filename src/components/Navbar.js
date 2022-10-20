@@ -74,12 +74,12 @@ backgroundColor:theme.palette.deep.main,
                 aria-label="Menu"
                 sx={{display:{xs:"block",sm:"none"},color:'rgb(20, 15, 35)'}}
                 >
-                    <MenuIcon/>
+                    <MenuIcon sx={{color:'white'}}/>
                 </IconButton>
                 <Box sx={{display:'flex',flexDirection:'column'}}>
                  
                     <Typography variant='h5' component='h4'  sx={{color:"rgb(107, 20, 41)",fontWeight:'bold'}} >
-                     TheCodingNerd
+                     WebWarrior
                   
               </Typography>
 

@@ -1,39 +1,40 @@
 import React from 'react'
 
 import {ListItem,ListItemIcon,ListItemText,Drawer,List,ListSubheader,Button,Typography} from '@mui/material'
-import {Code,GitHub,Javascript, CodeSharp as Reactjs,Html} from "@mui/icons-material"
+
+import {Code,GitHub,Javascript, CodeSharp as Reactjs,Html,NetworkPingSharp,Security,Apps,Cloud} from "@mui/icons-material"
+
 const DrawerComponent = ({open,setOpen,value,updateValue}) => {
 
 
     const [items]=React.useState({
      
       
-       learningPaths:[
-        {label:"Frontend",Icon:Reactjs,path:'frontend'},
-          {label:"Backend",Icon:Code,path:'backend'},
-            {label:"Networking",Icon:Javascript,path:'fullstack'},
-              {label:"Ethical Hacking",Icon:GitHub,path:'git'},
+      learningPaths:[
+         {label:"HTML and Css",Icon:Html},
+        {label:"Javascript",Icon:Javascript},
+          {label:"Node JS",Icon:Code},
+            {label:"React JS",Icon:Reactjs},
+              {label:"Networking",Icon:NetworkPingSharp},
            
-              {label:"AI and Machine Learning",Icon:GitHub,path:'git'},
-              {label:"Blockchain",Icon:GitHub,path:'git'},
-              {label:"Cloud(AWS)",Icon:GitHub,path:'git'}
+       
       ],
       PlayGrounds:[
-        {label:" Javascript ",Icon:Javascript,path:'jsPlayground'},
-          {label:"Node Js",Icon:Html,path:'htmlPlayground'},
-            {label:"React JS",Icon:Reactjs,path:'reactPlayground'},
-              {label:"React Native",Icon:Code,path:'nodePlayground'},
-              {label:"Solidity",Icon:GitHub,path:'git'}
+        {label:" Data Structures and Algorithims ",Icon:Code},
+          {label:"Web Security",Icon:Security},
+            {label:"Git Version Control",Icon:GitHub},
+              {label:"Unit Testing",Icon:Code},
+              {label:"Progressive Web Apps",Icon:Apps},
+                  {label:"AWS for developers",Icon:Cloud}
 
 
       ],
-
 
     })
     const ListItems=({items})=>{
         return <>
         {items.map(({label,Icon},i)=>{
-            return <ListItem sx={{width:'50vw',color:'rgb(20, 15, 35)'}} component={Button}  key={i}>
+            return <ListItem sx={{width:'70vw',color:'rgb(20, 15, 35)'}} component={Button}  key={i}>
 
 <ListItemIcon>
     <Icon/>
