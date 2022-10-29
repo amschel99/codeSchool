@@ -1,16 +1,18 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import axios from 'axios'
 
 import {Grid,Typography,Card,CardHeader,CardMedia,CardActions,CardContent,IconButton,Button} from '@mui/material'
 import {PlayCircle} from "@mui/icons-material"
 
-const Videos = () => {
-    const[videos,setVideos]=useState([])
+const Videos = ({videos,setVideos,videosDisplay,setVideosDisplay}) => {
+
     useEffect(()=>{
         const getVideos=async ()=>{
             try{
 const {data}=await axios.get(`http://localhost:8800/videos`)
+
 setVideos(data)
+setVideosDisplay(data)
 
 
             }
@@ -19,13 +21,13 @@ setVideos(data)
             }
         }
 getVideos()
-    },[])
+    },[setVideos,setVideosDisplay])
 
     const Container=(props)=><Grid   container {...props}/>
         const Item=(props)=><Grid item {...props}/>
   return (
     <Container spacing={6}>
-    {videos.map((video)=>{
+    {videosDisplay.map((video)=>{
         return <Item xs={12}  sm={3} key={video.id}>
         
   

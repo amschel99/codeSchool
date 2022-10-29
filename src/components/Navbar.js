@@ -12,6 +12,10 @@ import {Link} from 'react-router-dom'
 
 
 const Navbar= ({theme})=>{
+     const[videos,setVideos]=useState([])
+
+        const[videosDisplay,setVideosDisplay]=useState([])
+
     const [scrolling,setScrolling]=useState(false)
     const [scrollTop, setScrollTop]=useState(0)
     const[value,setValue]=useState(0)
@@ -120,9 +124,9 @@ Community
           </Slide>
           <Box sx={{marginTop:{xs:'55px',sm:'67px'}}}>
             <Stack direction='row' gap={36}>
-<DrawerComponent />
-<Videos/>
-<MobileDrawer open={open} setOpen={setOpen} value={value} updateValue={updateValue} />
+<DrawerComponent videosDisplay={videosDisplay} setVideosDisplay={setVideosDisplay}  videos={videos} setVideos={setVideos} />
+<Videos videosDisplay={videosDisplay} setVideosDisplay={setVideosDisplay}  videos={videos} setVideos={setVideos}/>
+<MobileDrawer  videosDisplay={videosDisplay} setVideosDisplay={setVideosDisplay}   videos={videos} setVideos={setVideos} open={open} setOpen={setOpen} value={value} updateValue={updateValue} />
 
             </Stack>
 

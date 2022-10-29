@@ -2,25 +2,26 @@ import React from 'react'
 
 import {ListItem,ListItemIcon,ListItemText,Drawer,List,ListSubheader,Typography,Button} from '@mui/material'
 import {Code,GitHub,Javascript, CodeSharp as Reactjs,Html,NetworkPingSharp,Security,Apps,Cloud} from "@mui/icons-material"
-const DrawerComponent = () => {
+const DrawerComponent = ({videos,setVideos,videosDisplay,setVideosDisplay}) => {
+ 
 
     const [items]=React.useState({
       learningPaths:[
-         {label:"HTML and Css",Icon:Html},
-        {label:"Javascript",Icon:Javascript},
-          {label:"Node JS",Icon:Code},
-            {label:"React JS",Icon:Reactjs},
-              {label:"Networking",Icon:NetworkPingSharp},
+         {label:"HTML and Css",Icon:Html,path:'html'},
+        {label:"Javascript",Icon:Javascript,path:'Javascript'},
+          {label:"Node JS",Icon:Code,path:'node'},
+            {label:"React JS",Icon:Reactjs,path:'React'},
+              {label:"Networking",Icon:NetworkPingSharp,path:'networking'},
            
        
       ],
       PlayGrounds:[
-        {label:" Data Structures and Algorithims ",Icon:Code},
-          {label:"Web Security",Icon:Security},
-            {label:"Git Version Control",Icon:GitHub},
-              {label:"Unit Testing",Icon:Code},
-              {label:"Progressive Web Apps",Icon:Apps},
-                  {label:"AWS for developers",Icon:Cloud}
+        {label:" Data Structures and Algorithims ",Icon:Code,path:"dsa"},
+          {label:"Web Security",Icon:Security,path:"security"},
+            {label:"Git Version Control",Icon:GitHub,path:"security"},
+              {label:"Unit Testing",Icon:Code,path:"testing"},
+              {label:"Progressive Web Apps",Icon:Apps,path:"pwas"},
+                  {label:"AWS for developers",Icon:Cloud, path:'cloud'}
 
 
       ],
@@ -30,11 +31,24 @@ const DrawerComponent = () => {
 
 
     })
+    const filterVideos=(path)=>{
+     const filteredVideos= videos.filter((video)=>video.path===path)
+     alert(path);
+     setVideosDisplay(filteredVideos)
+
+    }
 
     const ListItems=({items})=>{
         return <>
-        {items.map(({label,Icon},i)=>{
-            return <ListItem sx={{width:'20vw',color:'rgb(20, 15, 35)'}} component={Button}  key={i}>
+        {items.map(({label,Icon,path},i)=>{
+            return <ListItem sx={{width:'20vw',color:'rgb(20, 15, 35)'}}
+            onClick={
+
+ ()=>filterVideos(path)
+
+            }
+            
+            component={Button}  key={i}>
 
 <ListItemIcon>
     <Icon/>
