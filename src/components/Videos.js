@@ -9,7 +9,7 @@ const Videos = ({videos,setVideos,videosDisplay,setVideosDisplay}) => {
     useEffect(()=>{
         const getVideos=async ()=>{
             try{
-const {data}=await axios.get(`http://localhost:8800/videos`)
+const {data}=await axios.get(`https://e876-41-60-235-221.in.ngrok.io/videos`)
 
 setVideos(data)
 setVideosDisplay(data)
