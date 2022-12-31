@@ -9,7 +9,7 @@ const Videos = ({videos,setVideos,videosDisplay,setVideosDisplay}) => {
     useEffect(()=>{
         const getVideos=async ()=>{
             try{
-const {data}=await axios.get(`https://e876-41-60-235-221.in.ngrok.io/videos`)
+const {data}=await axios.get(`https://ea55-41-90-39-40.eu.ngrok.io/videos`)
 
 setVideos(data)
 setVideosDisplay(data)
@@ -40,7 +40,7 @@ title={video.name}
         <CardMedia
         
         component='img'
-      image={`http://localhost:8800${video.poster}`}
+      image={` https://ea55-41-90-39-40.eu.ngrok.io${video.poster}`}
        alt={video.name}
       />
       <CardContent>
