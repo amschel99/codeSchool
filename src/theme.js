@@ -4,12 +4,12 @@ import {createTheme} from "@mui/material"
 export const theme= createTheme({
     palette:{
         calm:{
-            main:"rgb(107, 20, 41)"
+            main:"#9ec1d7"
         },
 
 
         deep:{
-            main:"rgb(20, 15, 35)"
+            main:"#18465a"
         }
 
     }

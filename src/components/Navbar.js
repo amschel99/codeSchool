@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react"
-import {AppBar,Toolbar,Typography,Button,IconButton,Slide,styled,Box,Stack,Modal} from "@mui/material"
+import {AppBar,Toolbar,Typography,Button,IconButton,Slide,styled,Box,Stack,Modal,Select,OutlinedInput,TextField,ListSubheader,InputAdornment,MenuItem} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import {Person,Search} from "@mui/icons-material"
 import Videos from './Videos'
 import DrawerComponent from "./Drawer"
 import MobileDrawer from './MobileDrawer'
@@ -12,7 +13,9 @@ import {Link} from 'react-router-dom'
 
 
 const Navbar= ({theme})=>{
-     const[videos,setVideos]=useState([])
+     const[videos,setVideos]=useState([])//coming from an api
+     const searchRef=React.useRef()
+     const[searchText,setSearchText]=React.useState("")
 
         const[videosDisplay,setVideosDisplay]=useState([])
 
@@ -43,6 +46,7 @@ alignItems:"center"
 const StyledNav=styled(AppBar)(({theme})=>(
 {
 backgroundColor:theme.palette.deep.main,
+
 'z-index':10
 }
 ))
@@ -82,7 +86,7 @@ backgroundColor:theme.palette.deep.main,
                 </IconButton>
                 <Box sx={{display:'flex',flexDirection:'column'}}>
                  
-                    <Typography variant='h5' component='h4'  sx={{color:"rgb(107, 20, 41)",fontWeight:'bold'}} >
+                    <Typography variant='h5' component='h4'  sx={{color:"#eff1ee",fontWeight:'bold'}} >
                      WebWarrior
                   
               </Typography>
@@ -92,24 +96,92 @@ backgroundColor:theme.palette.deep.main,
                
                 </StyledBox>
                 <StyledBox sx={{flex:2,display:{xs:'none',sm:'flex'}}}>
-                       <Link >
-     <Typography  sx={{color:'#fff',textDecoration:'none'}} variant="h6">
-     Blog
+                 
+     <Typography component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
+       <span>Dashboard</span>
         </Typography> 
-        </Link>
-<Link>
-          <Typography  sx={{color:'#fff',textDecoration:'none'}} variant="h6">
-        Discord Server
+      
+
+          <Typography component={Link}   sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
+     My Courses
         </Typography>  
 
-        </Link>  
-        <Link>
-          <Typography  sx={{color:'#fff',textDecoration:'none'}} variant="h6">
-Community
-        </Typography>  
+    
         
-        </Link>            
+          <Typography  component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
+Publish
+        </Typography> 
+           <Typography  component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
+        <Select
+         sx={{width:{xs:'30vw',sm:'30vw'},height:"40px",backgroundColor:'white' ,border:'none',position:{xs:'absolute', sm:"relative"}, right:{xs:'90px',sm:'-50px'}}}
+     
+         MenuProps={{ autoFocus: false }}
+          labelId="search-select-label"
+          id="search-select"
+          value={searchText}
+          label="Search Course"
+         
+     
+         
+          input={<OutlinedInput sx={{border:'none'}} label="search course" />}
+          onChange={(event)=>{
+         searchRef.current.value=event.target.value
+          setSearchText(event.target.value)
+               
+  
+          }}
+          onClose={()=>{
+            setValue('')
+          }}
+               renderValue={() => searchText}
+        >
+            <ListSubheader>
+           <TextField
+            //sx={{width:{xs:'55vw',sm:'30vw'}, position:{xs:'absolute', sm:"relative"}, right:{xs:'90px',sm:'0'}}}
+           size="small"
+              // Autofocus on textfield
+              autoFocus
 
+                  required
+                  fullWidth
+                  name="course"
+                  label="Search course"
+                  type="text"
+                  id="course"
+                 
+
+                   inputRef={searchRef}
+           
+             InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                )
+              }}
+             onChange={ (e)=>{
+setValue(e.target.value)
+             }}
+             onKeyDown={(e) => {
+                if (e.key !== "Escape") {
+                  // Prevents autoselecting item while typing (default Select behaviour)
+                  e.stopPropagation();
+                }
+              }}
+                />
+                </ListSubheader>
+          {videos.map(({name,_id}) => (
+            <MenuItem
+              key={_id}
+              value={name}
+              
+            >
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+                  
+</Typography> 
                 </StyledBox>
                 <StyledBox  sx={{justifyContent:'space-evenly',flex:1}}>
                     
