@@ -60,20 +60,29 @@ const DrawerComponent = ({videos,setVideos,videosDisplay,setVideosDisplay}) => {
         </>
     }
   return (
-    <Drawer variant='permanent' sx={{'z-index':5, display:{xs:'none',sm:'block'}}} >
+    <Drawer variant='permanent' sx={{'z-index':5, display:{xs:'none',sm:'block'}}}
+    
+    PaperProps={{
+      sx: {
+       
+         backgroundColor:'#6bb77b',
+         
+      
+      }
+    }} >
 <List sx={{marginTop:7}}>
-<ListSubheader sx={{color:"rgb(107, 20, 41)"}}>
+<ListSubheader sx={{color:'#18465a', backgroundColor:'#6bb77b'}}>
   <Typography variant="h5">
     Learning Paths
   </Typography>
   </ListSubheader>
-<ListItems sx={{color:'rgb(20, 15, 35)'}} items={items.learningPaths}/>
-<ListSubheader sx={{color:"rgb(107, 20, 41)"}}>
+<ListItems sx={{color:'#6bb77b"'}} items={items.learningPaths}/>
+<ListSubheader sx={{color:'#18465a', backgroundColor:'#6bb77b'}}>
   <Typography variant="h5">
 Elective course work
   </Typography>
   </ListSubheader>
-<ListItems  sx={{color:'rgb(20, 15, 35)'}} items={items.PlayGrounds}/>
+<ListItems sx={{color:'#6bb77b'}} items={items.PlayGrounds}/>
 
 </List>
     </Drawer>

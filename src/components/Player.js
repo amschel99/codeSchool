@@ -11,7 +11,7 @@ const Video = (props) => {
     useEffect(()=>{
       const getVideo=async ()=>{
 try{
-  const {data}= await axios.get(`https://ea55-41-90-39-40.eu.ngrok.io/video/${id}/data`)
+  const {data}= await axios.get(`http://localhost:8000/video/${id}/data`)
 setVideoData(data)
 
 }catch(e){
@@ -24,7 +24,7 @@ getVideo()
  <Stack spacing={2}>
 <Box>
   <video width='100%' height='500' controls >
-    <source src={`https://ea55-41-90-39-40.eu.ngrok.io/video/${id}`} type='video/mp4'></source>
+    <source src={`http://localhost:8000/video/${id}`} type='video/mp4'></source>
  </video>
  
 </Box>

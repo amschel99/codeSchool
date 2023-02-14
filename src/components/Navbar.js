@@ -80,14 +80,14 @@ backgroundColor:theme.palette.deep.main,
                 <IconButton
                onClick={()=>setOpen((prev)=>!prev)}
                 aria-label="Menu"
-                sx={{display:{xs:"block",sm:"none"},color:'rgb(20, 15, 35)'}}
+                sx={{display:{xs:"block",sm:"none"},color:'#9ec1d7'}}
                 >
-                    <MenuIcon sx={{color:'white'}}/>
+                    <MenuIcon sx={{color:'#6bb77b'}}/>
                 </IconButton>
                 <Box sx={{display:'flex',flexDirection:'column'}}>
                  
-                    <Typography variant='h5' component='h4'  sx={{color:"#eff1ee",fontWeight:'bold'}} >
-                     WebWarrior
+                    <Typography variant='h5' component='h4'  sx={{color:"#6bb77b",fontWeight:'bold', fontStyle:'cursive'}} >
+                   levelUpJs
                   
               </Typography>
 
@@ -95,98 +95,28 @@ backgroundColor:theme.palette.deep.main,
                 
                
                 </StyledBox>
-                <StyledBox sx={{flex:2,display:{xs:'none',sm:'flex'}}}>
+                <StyledBox sx={{flex:4,display:{xs:'none',sm:'flex',margin:'2px solid red',justifyContent:'center'}}}>
                  
-     <Typography component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
-       <span>Dashboard</span>
+     <Typography component={Link}  sx={{color:'#6bb77b',textDecoration:'none',marginLeft:'15px', marginRight:'15px'}} variant="h6">
+       <span>Learn</span>
         </Typography> 
       
 
-          <Typography component={Link}   sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
-     My Courses
+          <Typography component={Link}   sx={{color:'#6bb77b',textDecoration:'none',marginLeft:'15px', marginRight:'15px'}} variant="h6">
+   Challenges
         </Typography>  
 
     
         
-          <Typography  component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
-Publish
+          <Typography  component={Link}  sx={{color:'#6bb77b',textDecoration:'none',marginLeft:'15px', marginRight:'15px'}} variant="h6">
+CodeBuddies
         </Typography> 
-           <Typography  component={Link}  sx={{color:'#6bb77b',textDecoration:'none'}} variant="h6">
-        <Select
-         sx={{width:{xs:'30vw',sm:'30vw'},height:"40px",backgroundColor:'white' ,border:'none',position:{xs:'absolute', sm:"relative"}, right:{xs:'90px',sm:'-50px'}}}
-     
-         MenuProps={{ autoFocus: false }}
-          labelId="search-select-label"
-          id="search-select"
-          value={searchText}
-          label="Search Course"
-         
-     
-         
-          input={<OutlinedInput sx={{border:'none'}} label="search course" />}
-          onChange={(event)=>{
-         searchRef.current.value=event.target.value
-          setSearchText(event.target.value)
-               
-  
-          }}
-          onClose={()=>{
-            setValue('')
-          }}
-               renderValue={() => searchText}
-        >
-            <ListSubheader>
-           <TextField
-            //sx={{width:{xs:'55vw',sm:'30vw'}, position:{xs:'absolute', sm:"relative"}, right:{xs:'90px',sm:'0'}}}
-           size="small"
-              // Autofocus on textfield
-              autoFocus
-
-                  required
-                  fullWidth
-                  name="course"
-                  label="Search course"
-                  type="text"
-                  id="course"
-                 
-
-                   inputRef={searchRef}
            
-             InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                )
-              }}
-             onChange={ (e)=>{
-setValue(e.target.value)
-             }}
-             onKeyDown={(e) => {
-                if (e.key !== "Escape") {
-                  // Prevents autoselecting item while typing (default Select behaviour)
-                  e.stopPropagation();
-                }
-              }}
-                />
-                </ListSubheader>
-          {videos.map(({name,_id}) => (
-            <MenuItem
-              key={_id}
-              value={name}
-              
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-                  
-</Typography> 
                 </StyledBox>
-                <StyledBox  sx={{justifyContent:'space-evenly',flex:1}}>
+                <StyledBox  sx={{justifyContent:'center',flex:1}}>
                     
 
-<Button onClick={()=>setOpenModal(true)}  variant='contained' color="calm">Sign Up</Button>
+<Button onClick={()=>setOpenModal(true)} sx={{backgroundColor:'#6bb77b',color:'#18465a'}} variant='contained' >Sign Up</Button>
                 </StyledBox>
                 
             </StyledToolbar>

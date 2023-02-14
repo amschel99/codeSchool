@@ -48,20 +48,29 @@ const DrawerComponent = ({open,setOpen,value,updateValue}) => {
 
     
   return (
-    <Drawer open={open} onClose={()=>setOpen(false)} variant='temporary' sx={{'z-index':5,display:{xs:'block',sm:'none'} }} >
+    <Drawer open={open} 
+    PaperProps={{
+      sx: {
+       
+         backgroundColor:'#6bb77b',
+         
+      
+      }
+    }}
+    onClose={()=>setOpen(false)} variant='temporary' sx={{'z-index':5,display:{xs:'block',sm:'none'} }} >
 <List sx={{marginTop:7}}>
-<ListSubheader sx={{color:"rgb(107, 20, 41)"}}>
+<ListSubheader sx={{color:'#18465a', backgroundColor:'#6bb77b'}}>
   <Typography variant="h5">
     Learning Paths
   </Typography>
   </ListSubheader>
-<ListItems sx={{color:'rgb(20, 15, 35)'}} items={items.learningPaths}/>
-<ListSubheader sx={{color:"rgb(107, 20, 41)"}}>
+<ListItems sx={{color:'#6bb77b"'}} items={items.learningPaths}/>
+<ListSubheader sx={{color:'#18465a', backgroundColor:'#6bb77b'}}>
   <Typography variant="h5">
     Playgrounds
   </Typography>
   </ListSubheader>
-<ListItems  sx={{color:'rgb(20, 15, 35)'}} items={items.PlayGrounds}/>
+<ListItems sx={{color:'#6bb77b"'}} items={items.PlayGrounds}/>
 
 </List>
     </Drawer>
